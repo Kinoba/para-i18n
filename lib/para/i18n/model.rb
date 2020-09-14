@@ -106,7 +106,8 @@ module Para
         private
 
         def prepare_attribute_translation(attribute)
-          # Delegate ActiveStorage fields handling to the Para::I18n::ActiveStorage module
+          # Let the Para::I18n::AttributeTranslation::Attachment module handle
+          # ActiveStorage attachment fields translation preparation.
           Para::I18n::AttributeTranslation::Attachment.prepare(self, attribute)
 
           define_method(attribute) do
